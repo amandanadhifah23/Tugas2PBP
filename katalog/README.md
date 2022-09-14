@@ -1,6 +1,9 @@
 Link hasil deploy: https://pbp-tugas-deploy-amanda.herokuapp.com/
 
 Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html;
+![]https://github.com/amandanadhifah23/Tugas2PBP/blob/main/Bagan/Bagan%20README.png
+
+Kaitan antara urls.py, views.py, models.py, dan berkas html: 
 
 
 Jelaskan kenapa menggunakan virtual environment? 
