@@ -19,7 +19,7 @@ Virtual environment penting untuk memberikan batasan dan lingkungan yang terisol
 Bisa saja membuat aplikasi web berbasis Django tanpa menggunakan virtual environment. Akan tetapi, project yang sedang dijalankan memiliki risiko tinggi menampilkan hasil yang berbeda-beda. Jika tidak ada virtual environment, tidak ada ruang terpisah untuk sebuah proyek dan dapat berdependensi dengan proyek lainnya.
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan poin 1 sampai dengan 4 di atas
-###1. Membuat sebuah fungsi pada views.py
+### 1. Membuat sebuah fungsi pada views.py
 Pada folder katalog yang disediakan template, pemanggilan fungsi show_katalog akan melakukan render sebuah halaman HTML. Fungsi show_katalog pada views.py akan memanggil fungsi query ke model database dan menyimpan hasil query tersebut. Penambahan context sebagai parameter ketiga untuk return fungsi render.
 
 ### 2. Routing pada urls.py

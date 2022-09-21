@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 1,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "Turning Red",
+            "movie_rating": "8.5",
+            "movie_date": "2022-03-01",
+            "movie_review": "pesan moralnya bagus, filmnya lucu, dan cocok buat yang mau nonton tanpa mikir keras"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 2,
+        "fields": {
+            "watched_movie": false,
+            "movie_name": "Luca",
+            "movie_rating": "7.4",
+            "movie_date": "2022-06-18",
+            "movie_review": "Belum nongton"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 3,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "Moana",
+            "movie_rating": "7.6",
+            "movie_date": "2016-11-25",
+            "movie_review": "Filmnya mengajarkan keberanian dan ketangguhan. Cocok ditonton bareng bocil."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 4,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "Encanto",
+            "movie_rating": "7.2",
+            "movie_date": "2021-11-24",
+            "movie_review": "Dari alur cerita bagus banget, heartwarming, animasinya keren"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 5,
+        "fields": {
+            "watched_movie": false,
+            "movie_name": "Frozen 2",
+            "movie_rating": "6.9",
+            "movie_date": "2010-11-22",
+            "movie_review": "OTW tonton"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 6,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "Maleficent",
+            "movie_rating": "6",
+            "movie_date": "2014-06-04",
+            "movie_review": "Salah satu film yang ga bosen buat rewatch, akting pemainnya mantepp. Seru banget alur ceritanya."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 7,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "Inside Out",
+            "movie_rating": "7.5",
+            "movie_date": "2015-05-18",
+            "movie_review": "BAGUSS, mengajarkan kalau kita harus deal with semua emosi yang ada pada diri kita, ga melulu soal kebahagiaan. Tapi, a little bit boring sihh."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 8,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "Soul",
+            "movie_rating": "4",
+            "movie_date": "2020-10-11",
+            "movie_review": "Entah kenapa nonton ini sad banget. Ga mau nonton lagi. Berasa jenuh, stresful, dark, pokoknya abis nonton ini vibesnya sendu gt ga suka"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 9,
+        "fields": {
+            "watched_movie": false,
+            "movie_name": "Toy Story 4",
+            "movie_rating": "8",
+            "movie_date": "2019-06-21",
+            "movie_review": "Baru mau nonton"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 10,
+        "fields": {
+            "watched_movie": true,
+            "movie_name": "Zootopia",
+            "movie_rating": "8",
+            "movie_date": "2016-02-17",
+            "movie_review": "Filmnya bagus, berhasil menyampaikan energi positif tokoh utamanya ke penonton. Alur ceritanya juga bagus b g t."
+        }
+    }
+]
