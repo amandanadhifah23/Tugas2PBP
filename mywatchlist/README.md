@@ -12,8 +12,8 @@ Pada saat membuat atau mengembangkan suatu platform, pasti kita memerlukan pertu
 Hal pertama yang dilakukan adalah membuat suatu aplikasi baru bernama mywatchlist di proyek Django Tugas 2 dengan menjalankan python manage.py startapp mywatchlist. Lalu, mendaftarkan aplikasi tersebut pada variabel INSTALLED_APPS dengan menambahkan 'mywatchlist'. Menambahkan path mywatchlist dengan menambahkan path('mywatchlist/°,include('mywatchlist.urls")). Kemudian, membuat sebuah model MyWatchList yang memiliki 5 atribut pada models.py. Selanjutnya, menjalankan perintah python manage.py makemigrations dan python manage.py migrate. Membuat folder bernama fixtures dan membuat file initial_watchlist.json, kemudian loaddata dengan menjalankan python manage.py loaddata initial_watchlist.json. Pada views.py, membuat fungsi show_mywatchlist, show_mywatchlist_xml, dan show_mywatchlist_json. Lalu, buka urls.py yang ada pada folder wishlist dan import fungsi yang sudah dibuat.
 
 ## HTML Postman
-![Screenshoot HTML](/HTML Postman.jpg)
+![Screenshoot HTML](/HTML_Postman.jpg)
 ## XML Postman
-![Screenshoot XML](/XML Postman.jpg)
+![Screenshoot XML](/XML_Postman.jpg)
 ## JSON Postman
-![Screenshoot JSON](/JSON Postman.jpg)
+![Screenshoot JSON](/JSON_Postman.jpg)
