@@ -5,9 +5,9 @@
         "fields": {
             "watched_movie": true,
             "movie_name": "Turning Red",
-            "movie_rating": "8.5",
+            "movie_rating": "8",
             "movie_date": "2022-03-01",
-            "movie_review": "pesan moralnya bagus, filmnya lucu, dan cocok buat yang mau nonton tanpa mikir keras"
+            "movie_review": "pesan moralnya bagus, filmnya lucu, ringan, dan menyenangkan"
         }
     },
     {
@@ -16,7 +16,7 @@
         "fields": {
             "watched_movie": false,
             "movie_name": "Luca",
-            "movie_rating": "7.4",
+            "movie_rating": "7",
             "movie_date": "2022-06-18",
             "movie_review": "Belum nongton"
         }
@@ -27,9 +27,9 @@
         "fields": {
             "watched_movie": true,
             "movie_name": "Moana",
-            "movie_rating": "7.6",
+            "movie_rating": "7",
             "movie_date": "2016-11-25",
-            "movie_review": "Filmnya mengajarkan keberanian dan ketangguhan. Cocok ditonton bareng bocil."
+            "movie_review": "Filmnya mengajarkan keberanian dan ketangguhan. Cocok ditonton bareng bocil"
         }
     },
     {
@@ -38,7 +38,7 @@
         "fields": {
             "watched_movie": true,
             "movie_name": "Encanto",
-            "movie_rating": "7.2",
+            "movie_rating": "7",
             "movie_date": "2021-11-24",
             "movie_review": "Dari alur cerita bagus banget, heartwarming, animasinya keren"
         }
@@ -49,7 +49,7 @@
         "fields": {
             "watched_movie": false,
             "movie_name": "Frozen 2",
-            "movie_rating": "6.9",
+            "movie_rating": "6",
             "movie_date": "2010-11-22",
             "movie_review": "OTW tonton"
         }
@@ -71,7 +71,7 @@
         "fields": {
             "watched_movie": true,
             "movie_name": "Inside Out",
-            "movie_rating": "7.5",
+            "movie_rating": "7",
             "movie_date": "2015-05-18",
             "movie_review": "BAGUSS, mengajarkan kalau kita harus deal with semua emosi yang ada pada diri kita, ga melulu soal kebahagiaan. Tapi, a little bit boring sihh."
         }
