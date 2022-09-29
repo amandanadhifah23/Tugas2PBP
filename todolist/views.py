@@ -41,7 +41,6 @@ def register(request):
 # Page create task
 def create_task(request):
     form = FormTask()
-
     if request.method == "POST":
         form = FormTask(request.POST)
         if form.is_valid():
@@ -54,7 +53,6 @@ def create_task(request):
             return redirect('todolist:show_todolist')
     else:
         form = FormTask()
-
     context = {'form': form}
     return render(request, 'create_task.html', context)
 
@@ -81,5 +79,11 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('todolist:login'))
     response.delete_cookie('last_login')
     return response
+
+# Delete
+def delete_task(request, id):
+    deletetask = Task.objects.get(pk=id)
+    deletetask.delete()
+    return redirect('todolist:show_todolist')
 
 

@@ -17,6 +17,9 @@
             <th>{{todolist.date}}</th>
             <th>{{todolist.title}}</th>
             <th>{{todolist.description}}</th>
+            <th> 
+                <th><button><a href="{% url 'todolist:delete_task' todolist.id %}">Delete Task</a></button></th>
+            </th>
         </tr>
     {% endfor %}
 </table>
