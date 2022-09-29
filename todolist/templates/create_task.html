@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block meta %}
+<title>Create ToDoList</title>
+{% endblock meta %}
+{% block content %}
+
+<div>
+
+    <h1>Create TodoList</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+
+        <input type="submit" name="submit" value="Create"/>
+    </form>
+
+</div>
+
+{% endblock content %}
