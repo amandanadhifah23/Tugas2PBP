@@ -1,20 +1,29 @@
 {% extends 'base.html' %}
 {% block meta %}
 <title>Create ToDoList</title>
+<style>
+    body {
+        background-color: silver;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
 {% endblock meta %}
 {% block content %}
 
-<div>
+<div style="background-color:powderblue; width:450px">
 
-    <h1>Create TodoList</h1>
+    <h1 style="text-align: center; background: #EBA7AC;">Create TodoList</h1>
 
-    <form method="POST" action="">
+    <form method="POST" action=""  class="d-flex flex-column">
         {% csrf_token %}
-        <table>
+        <table class="table table-striped-columns table-bordered">
             {{ form.as_table }}
         </table>
 
-        <input type="submit" name="submit" value="Create"/>
+        <input class="btn btn-dark justify-content-center" type="submit" name="submit" value="Create"/>
     </form>
 
 </div>
