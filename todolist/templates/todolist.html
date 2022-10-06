@@ -1,56 +1,47 @@
-{% extends 'base.html' %}
-
-{% block meta %}
+{% extends 'base.html' %} {% block meta %}
 <style>
-    .card:hover{
-      transform: scale(1.1);
-      color: blue;
-    }
-    
+  .card:hover {
+    transform: scale(1.1);
+    color: blue;
+  }
 </style>
-{% endblock meta %}
+{% endblock meta %} {% block content %}
 
-{% block content %}
-
-<div style=" background-color: silver; padding-right: 50px; padding-left: 50px; padding-top: 125px; padding-bottom: 125px;">
-
-<nav class="navbar navbar-expand-lg" style="background-color: #EBA7AC">
+<div style="background-color: silver; padding-right: 50px; padding-left: 50px; padding-top: 125px; padding-bottom: 125px">
+  <nav class="navbar navbar-expand-lg" style="background-color: #eba7ac">
     <div class="container-fluid">
-        <h3 style="text-align: center; color: black;"> <strong> Welcome {{username}}! </strong></h3>
-      <button style="background-color: whitesmoke;"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+      <h3 style="text-align: center; color: black"><strong> Welcome {{username}}! </strong></h3>
+      <button style="background-color: whitesmoke"><a href="{% url 'todolist:logout' %}">Logout</a></button>
     </div>
-</nav>
+  </nav>
 
-<div class="d-flex justify-content-center" style="background: grey;">
-    <button style="background-color: white;"><a href="{% url 'todolist:create_task' %}">Create Task</a></button>
-</div>
-    <div class="d-flex justify-content-center">
-
-    {% comment %}  Add the data below this line {% endcomment %}
-    {% for todolist in list_todo %}
+  <div class="d-flex justify-content-center" style="background: grey">
+    <button style="background-color: white"><a href="{% url 'todolist:create_task' %}">Create Task</a></button>
+  </div>
+  <div class="d-flex justify-content-center">
+    {% comment %} Add the data below this line {% endcomment %} {% for todolist in list_todo %}
     <div class="row">
-    <div class="column">
-    <div class="card" style="width: 18rem; text-align: center; background-color: #EBA7AC; padding-right: 10px; padding-left: 10px;">
+      <div class="column">
+        <div class="card" style="width: 18rem; text-align: center; background-color: #eba7ac; padding-right: 10px; padding-left: 10px">
+          <div class="card-body">
+            <h5 class="card-title">{{todolist.title}}</h5>
+            <p class="card-text">{{todolist.description}}</p>
+          </div>
 
-        <div class="card-body">
-          <h5 class="card-title">{{todolist.title}}</h5>
-          <p class="card-text">{{todolist.description}}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{todolist.date}}</li>
+          </ul>
+
+          <div class="card-body">
+            <button style="background-color: powderblue"><a href="{% url 'todolist:delete_task' todolist.id %}">Delete Task</a></button>
+          </div>
         </div>
-        
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{todolist.date}}</li>
-        </ul>
-
-        <div class="card-body">
-        <button style="background-color: powderblue;"><a href="{% url 'todolist:delete_task' todolist.id %}">Delete Task</a></button>
-        </div>
-
+        <br />
+        <br />
+        {% endfor %}
       </div>
-      <br>
-      <br>
-      {% endfor %}
+      <br />
     </div>
-<br>
-
+    {% endblock content %}
+  </div>
 </div>
-{% endblock content %}

@@ -1,64 +1,55 @@
-{% extends 'base.html' %}
-
-{% block meta %}
-<title> Login </title>
+{% extends 'base.html' %} {% block meta %}
+<title>Login</title>
 <style>
-    body {
-        background-color: silver;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  body {
+    background-color: silver;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>
-{% endblock meta %}
+{% endblock meta %} {% block content %}
 
-{% block content %}
-
-<div class = "login" style="background-color:powderblue; text-align: center; width:350px">
-
-    <nav class="navbar" style="background-color: #EBA7AC;">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">LOGIN</span>
-          <img src="https://darvideo.tv/wp-content/uploads/2021/05/E-learning-animation-video.jpg" alt="DO YOUR TODO" width="40" height="30" class="d-inline-block align-text-top">
-        </div>
-      </nav>
-    
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table class="table table-striped-columns table-bordered">
-
-            <tr class="d-grid gap-2 table-active">
-                <td> <strong>Username: </strong></td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr class="d-grid gap-2 table-active">
-                <td> <strong>Password: </strong> </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr class="d-grid gap-2">
-                <td><input class="btn btn-dark" type="submit" value="Login"></td>
-            </tr>
-
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-
-    <div class="alert alert-dark" style= "color: black;" role="alert" style="text-align: center">
-       <strong> Belum mempunyai akun? </strong>
+<div class="login" style="background-color: powderblue; text-align: center; width: 350px">
+  <nav class="navbar" style="background-color: #eba7ac">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">LOGIN</span>
+      <img src="https://darvideo.tv/wp-content/uploads/2021/05/E-learning-animation-video.jpg" alt="DO YOUR TODO" width="40" height="30" class="d-inline-block align-text-top" />
     </div>
-    <a href="{% url 'todolist:register' %}">Buat Akun Dulu Bro</a>
+  </nav>
 
+  <form method="POST" action="">
+    {% csrf_token %}
+    <table class="table table-striped-columns table-bordered">
+      <tr class="d-grid gap-2 table-active">
+        <td><strong>Username: </strong></td>
+        <td><input type="text" name="username" placeholder="Username" class="form-control" /></td>
+      </tr>
+
+      <tr class="d-grid gap-2 table-active">
+        <td><strong>Password: </strong></td>
+        <td><input type="password" name="password" placeholder="Password" class="form-control" /></td>
+      </tr>
+
+      <tr class="d-grid gap-2">
+        <td><input class="btn btn-dark" type="submit" value="Login" /></td>
+      </tr>
+    </table>
+  </form>
+
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <div class="alert alert-dark" style="color: black" role="alert" style="text-align: center">
+    <strong> Belum mempunyai akun? </strong>
+  </div>
+  <a href="{% url 'todolist:register' %}">Buat Akun Dulu Bro</a>
 </div>
 
 {% endblock content %}
