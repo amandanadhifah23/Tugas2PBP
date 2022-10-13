@@ -30,6 +30,8 @@ Ketika user mengisi form dan menekan tombol submit, data yang diinput tadi akan 
 - Membuat halaman form untuk pembuatan task pada file forms.py
 - Membuat file urls.py dan menambahkan path url dari fungsi-fungsi yang sudah dibuat pada file views.py pada variabel urlpatterns untuk melakukan routing.
 
+<hr>
+
 # README Tugas 5
 
 ## Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
@@ -77,3 +79,41 @@ Eksternal CSS adalah kode CSS yang ditulis terpisah dengan kode HTML yang biasan
 - Pada base.html di template, menambahkan <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> pada head dan <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> pada body agar dapat mengimplementasikan bootstrap.
 - Masih pada base.html, tambahkan <meta name="viewport" content="width=device-width, initial-scale=1.0"> pada head agar keempat halaman menjadi responsive.
 - Kustomisasi file register.html, login.html, create_task.html, todolist.html dengan kode-kode yang terdapat pada web bootsrap, misal mengubah backround color, text-color, padding, table, dsb.
+
+<hr>
+
+# README Tugas 6
+
+## Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+
+- Asynchronous programming merupakan suatu pendekatan yang tanpa harus terikat dengan proses lain sehingga tiap task tidak perlu menunggu task lain untuk selesai berjalan.
+- Synchronous programming merupakan pendekatan yang task-nya dieksekusi satu persatu sesuatu dengan urutan dan prioritas task. Synchronous programming mengikuti click, wait, refresh.
+- Perbedaan: Waktu eksekusi asynchornus perogramming lebih cepat dibandingkan synchronus programming. Selain itu, Asynchonus programming memungkinkan user untuk tetap berinteraksi dengan server atau halaman web selagi menunggu respons, sedangkan dalam synchronus programming mengharuskan user untuk menunggu halaman web selesai load atau menampilkan semua respons sampai selesai baru user dapat berinteraksi lagi.
+
+## Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma Event-Driven Programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+
+Event merupakan kejadian atau aktivitas yang sedang berlangsung di halaman web. Event-Driven Programming merupakan paradigma yang konsep kerjanya tergantung dari kejadian atau event tertentu. Jadi, membuat alur program berdasarkan event yang sedang terjadi di program. Penerapan dalam tugas ini adalah saat user meng-klik tombol add task, akan memunculkan pop-up halaman untuk menambahkan todolist baru dan saat klik "x" akan menutup halaman pop-up.
+
+## Jelaskan penerapan asynchronous programming pada AJAX.
+
+AJAX (Asynchronous Javascript and XML) memungkinkan halaman web untuk bekerja secara asynchronous. Dengan AJAX dapat mengirimkan dan menerima data dari server tanpa harus load seluruh halaman. AJAX menggunakan objek XMLHttpRequest untuk penerapan asynchornous tersebut. Event-driven programming yang dijelaskan di atas juga merupakan salah satu penerapan asynchronous programming pada AJAX.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+
+- Menambahkan fungsi show_json untuk mengembalikan seluruh data task dalam bentuk JSON
+- Menambahkan path json/ ke urls.py
+- Menambahkan fungsi add_task_ajax untuk menambahkan task baru ke dalam database.
+- Menambahkan path add/ ke urls.py
+- Memodifikasi fungsi delete
+- Mengubah file todolist.html dengan menghapus dulu for loop dan isinya
+- Menambahkan <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> sebelum masuk ke body
+- Membuat modal dan membuat sebuah tombol Add Task yang membuka sebuah modal dengan form untuk menambahkan task
+- Melakukan pengambilan task menggunakan AJAX GET
+- Membuat form dalam modal dengan method POST yang akan memasukkan data ke database.
+- Type Input yang terdapat dalam form modal adalah submit dan akan diarahkan ke todolist/add dan memanggil fungsi add_task_ajax yang ada pada views.py
+- Membuat fungsi di dalam js yang ketika form dalam modal disubmit.
+- Fungsi akan mengirimkan response ajax POST ke todolist/add dan ditangkap oleh fungsi add_task_ajax
+
+### Referensi:
+
+- https://binus.ac.id/malang/2022/05/asynchronous-vs-synchronous-programming/

@@ -15,6 +15,10 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from .forms import FormTask
+from django.http.response import JsonResponse, HttpResponse
+from django.http import HttpResponse
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
@@ -39,6 +43,7 @@ def register(request):
     return render(request, 'register.html', context)
 
 # Page create task
+@login_required(login_url='/todolist/login/')
 def create_task(request):
     form = FormTask()
     if request.method == "POST":
@@ -81,9 +86,34 @@ def logout_user(request):
     return response
 
 # Delete
+@login_required(login_url='/todolist/login/')
+@csrf_exempt
 def delete_task(request, id):
     deletetask = Task.objects.get(pk=id)
     deletetask.delete()
-    return redirect('todolist:show_todolist')
+    return JsonResponse({'error': False})
 
+# Todolist Ajax
+@login_required(login_url='/todolist/login/')
+def show_json(request):
+    data = Task.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
+# Add Task
+@login_required(login_url='/todolist/login/')
+@csrf_exempt
+def add_task_ajax(request):
+    form = FormTask()
+    if request.method == "POST":
+        form = FormTask(request.POST)
+        if form.is_valid():
+            form = Task()
+            form.user = request.user
+            form.date = datetime.datetime.now()
+            form.title = request.POST.get('title')
+            form.description = request.POST.get('description')
+            form.save()
+            return redirect('todolist:show_todolist')
+    else:
+        form = FormTask()
+    return JsonResponse({"instance": "Task Ditambahkan"},status=200)

@@ -3,45 +3,105 @@
   .card:hover {
     transform: scale(1.1);
     color: blue;
+    background-color: yellow;
   }
 </style>
 {% endblock meta %} {% block content %}
 
-<div style="background-color: silver; padding-right: 50px; padding-left: 50px; padding-top: 125px; padding-bottom: 125px">
-  <nav class="navbar navbar-expand-lg" style="background-color: #eba7ac">
-    <div class="container-fluid">
-      <h3 style="text-align: center; color: black"><strong> Welcome {{username}}! </strong></h3>
-      <button style="background-color: whitesmoke"><a href="{% url 'todolist:logout' %}">Logout</a></button>
-    </div>
-  </nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-  <div class="d-flex justify-content-center" style="background: grey">
-    <button style="background-color: white"><a href="{% url 'todolist:create_task' %}">Create Task</a></button>
-  </div>
-  <div class="d-flex justify-content-center">
-    {% comment %} Add the data below this line {% endcomment %} {% for todolist in list_todo %}
-    <div class="row">
-      <div class="column">
-        <div class="card" style="width: 18rem; text-align: center; background-color: #eba7ac; padding-right: 10px; padding-left: 10px">
-          <div class="card-body">
-            <h5 class="card-title">{{todolist.title}}</h5>
-            <p class="card-text">{{todolist.description}}</p>
-          </div>
-
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{todolist.date}}</li>
-          </ul>
-
-          <div class="card-body">
-            <button style="background-color: powderblue"><a href="{% url 'todolist:delete_task' todolist.id %}">Delete Task</a></button>
-          </div>
-        </div>
-        <br />
-        <br />
-        {% endfor %}
+<body style="background-color: plum">
+  <div style="padding-right: 50px; padding-left: 50px; padding-top: 125px; padding-bottom: 125px">
+    <nav class="navbar navbar-expand-lg" style="background-color: yellow">
+      <div class="container-fluid">
+        <h3 style="color: black"><strong> Welcome {{username}}! </strong></h3>
+        <button style="background-color: whitesmoke"><a href="{% url 'todolist:logout' %}">Logout</a></button>
       </div>
-      <br />
+    </nav>
+    <div class="d-flex justify-content-center" style="background: grey">
+      <button style="background-color: white"><a href="{% url 'todolist:create_task' %}">Create Task</a></button>
+      <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: white">Add Task</button>
     </div>
-    {% endblock content %}
   </div>
-</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Task</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="">
+            {% csrf_token %}
+            <div class="mt-4">
+              <label for="Title">Title</label>
+            </div>
+            <input id="title-controller" type="text" name="title" placeholder="Title" required class="form-control" />
+            <div class="mt-4">
+              <label for="description">Description</label>
+            </div>
+            <textarea id="description-controller" name="description" placeholder="Description" cols="30" rows="10" class="form-control" required></textarea>
+            <div class="modal-footer">
+              <button id="save-task" type="submit" class="btn btn-primary" value="Submit" onclick="">Add Task</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="todos" class="row text-center"></div>
+</body>
+
+<script>
+  function createTask() {
+    $.post({
+      url: `add/`,
+      type: "post",
+      data: {
+        title: $("#title-controller").val(),
+        description: $("#description-controller").val(),
+      },
+      success: showTodolist,
+    });
+  }
+  $(`#save-task`).attr("onclick", `createTask()`);
+
+  function deleteTask(pk) {
+    $.post({
+      url: `delete_task/${pk}/`,
+      type: "post",
+      data: {},
+      success: showTodolist,
+    });
+  }
+
+  function showTodolist() {
+    $.get("./json", function (data) {
+      $("#todos").empty();
+      for (let i = 0; i < data.length; i++) {
+        $("#todos").append(
+          `<div  class="col-md-4">
+              <div class="card">
+                  <h2 class="card-title">${data[i].fields.title}</h2>
+                  <h3 class="card-date">${data[i].fields.date}</h3>
+                  <p class="card-text">${data[i].fields.description}</p>
+                  <p id="todo-mark-${i}" class="card-text"></p>
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item dua">
+                      <button type="button" onclick="" id="delete-button-${i}" class="button">Delete Task</button>
+                      </li>
+                  </ul>
+              </div>
+            </div>`
+        );
+        $(`#delete-button-${i}`).attr("onclick", `deleteTask(${data[i].pk})`);
+      }
+    });
+  }
+
+  showTodolist();
+</script>
+
+{% endblock content %}
